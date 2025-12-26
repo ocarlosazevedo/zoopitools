@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --zoopi-bg: #0a0a0b;
+  --zoopi-card: #111113;
+  --zoopi-border: #1e1e21;
+  --zoopi-accent: #6366f1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--zoopi-bg);
+  color: #fafafa;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Drag and drop zone */
+.drop-zone {
+  position: relative;
+  border: 2px dashed #27272a;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.drop-zone:hover,
+.drop-zone.active {
+  border-color: var(--zoopi-accent);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.drop-zone.active {
+  transform: scale(1.01);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 4px;
+  background: #27272a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--zoopi-accent), #818cf8);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* File preview */
+.file-preview {
+  background: linear-gradient(135deg, #18181b 0%, #111113 100%);
+  border: 1px solid #27272a;
+  border-radius: 8px;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #18181b 25%, #27272a 50%, #18181b 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Toast notifications */
+.toast {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
